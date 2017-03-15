@@ -1,0 +1,116 @@
+body
+{
+   background:url('giphy.gif') no-repeat;
+   background-size: 100%;
+   color: white;
+   text-align: center;
+}
+.formdesign{
+
+}
+.button{
+  margin-right:30px;
+  font-size: 60px;
+  bottom: 0 !important;
+  color: black;
+  position: relative;
+  top:3em;
+}
+
+
+.button:hover
+{
+color:blue;
+border-style:outset;
+}
+
+.button:active
+{
+color:green;
+padding-left:4px;
+padding-right:2px;
+padding-top:4px;
+padding-bottom:2px;
+border-style:inset;
+}
+
+.button1{
+   margin-right:30px;
+   font-size: 60px;
+   bottom: 0 !important;
+   color: black;
+   position: relative;
+   top:4em;
+}
+
+.button1:hover
+{
+color:blue;
+border-style:outset;
+}
+
+.button1:active
+{
+color:green;
+padding-left:4px;
+padding-right:2px;
+padding-top:4px;
+padding-bottom:2px;
+border-style:inset;
+}
+
+
+.button2{
+  margin-right:30px;
+  font-size: 60px;
+  bottom: 0 !important;
+  color: black;
+  position: relative;
+  top:5em;
+}
+.button2:hover
+{
+color:blue;
+border-style:outset;
+}
+
+.button2:active
+{
+color:green;
+padding-left:4px;
+padding-right:2px;
+padding-top:4px;
+padding-bottom:2px;
+border-style:inset;
+}
+
+.button3{
+  margin-right:30px;
+  font-size: 60px;
+  bottom: 0 !important;
+  color: black;
+  position: relative;
+  top:5em;
+}
+.button3:hover
+{
+color:blue;
+border-style:outset;
+}
+
+.button3:active
+{
+color:green;
+padding-left:4px;
+padding-right:2px;
+padding-top:4px;
+padding-bottom:2px;
+border-style:inset;
+}
+
+.messageHome{
+  bottom: 0 !important;
+  color: black;
+  position: relative;
+  top:19em;
+}
