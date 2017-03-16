@@ -49,7 +49,7 @@ var app     = express();
 app.get('/scrape', function(req, res){
   var pays="espagne";
   var prices;
-  var url="http://www.promovacances.com/vacances-sejour-hotel/voyage-espagne/#destinationZones=1761&departureCities=1188&themespace=sejour-voyage&departureDateRange=15&moteur=true";
+  var url="http://www.promovacances.com/vacances-sejour-hotel/voyage-"+pays+"/#destinationZones=1761&departureCities=1188&themespace=sejour-voyage&departureDateRange=15&moteur=true";
 
 request(url, function(error, response, html){
     if(!error){
