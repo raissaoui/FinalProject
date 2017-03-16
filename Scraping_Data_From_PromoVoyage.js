@@ -36,8 +36,7 @@ var url="http://www.promovacances.com/vacances-sejour-hotel/voyage-"+pays+"/#des
 exports.PromoVacances_price = PromoVacances_price*/
 
 
-
-
+//#col-droite > section.noResult
 
 var express = require('express');
 var fs = require('fs');
