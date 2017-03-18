@@ -4,12 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <title>TP : Un formulaire interactif</title>
-    <link rel="stylesheet" href="SignIn.css">
+    <!--link rel="stylesheet" href="SignIn.css"-->
 </head>
 
 <body>
 
-    <form id="myForm">
+    <form id="myForm"  action="" method="post" enctype="multipart/form-data">
+         <fieldset>
 
         <span class="form_col">Sexe :</span>
         <label><input name="sex" type="radio" value="H" />Homme</label>
@@ -84,7 +85,7 @@
       <select name="price" id="price">
         <option value="none">select your choice</option>
         <option value=""> >100€ </option>
-        <option value=""> >200€ et < 100€ </option>
+        <option value=""> >200€ and < 100€ </option>
         <option value=""> >300€ and < 200€</option>
     </select>
         <span class="tooltip">you have to en</span>
@@ -96,8 +97,10 @@
         <br /><br />
 
         <span class="form_col"></span>
-        <input type="submit" value="M'inscrire" /> <input type="reset" value="Réinitialiser le formulaire" />
-
+        <input type="submit" value="Create Profile" />
+        <button href="SignIn.html" class="button button-block"/>Sign Up</button></br>
+         <input type="reset" value="Réinitialiser le formulaire" />
+</fieldset>
     </form>
 
 </body>

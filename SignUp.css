@@ -1,4 +1,4 @@
-body
+/*body
 {
    background:url('giphy2.gif') no-repeat;
    background-size: 100%;
@@ -18,7 +18,7 @@ input {
 	padding: 2px;
 	border: 1px solid #CCC;
 	border-radius: 2px;
-	outline: none; /* Retire les bordures appliquées par certains navigateurs (Chrome notamment) lors du focus des éléments <input> */
+	outline: none; /* Retire les bordures appliquées par certains navigateurs (Chrome notamment) lors du focus des éléments <input>
 }
 
 input:focus {
@@ -51,4 +51,4 @@ input:focus {
 	border: 1px solid #555;
 	background-color: #CCC;
 	border-radius: 4px;
-}
+}*/
