@@ -15,7 +15,8 @@ var price;
 var link;
 var hotel;
 var jsonlookvoyage= { price: "" , hotel: "", link: "" };
-
+var pays="espagne";
+var url="http://www.look-voyages.fr/travel/productList.aspx?nbAdult=2&nbChild=0&depdatedelta=2";
 var lookvoyage_price = function(url,callback){
   request(url, function(error, response, html){
       if(!error){
@@ -28,7 +29,7 @@ var lookvoyage_price = function(url,callback){
           console.log(price);
         })
      }
-     callback(price);
+     callback(jsoprice);
    })
  }
 var lookvoyage_hotel = function(url,callback){
@@ -62,8 +63,21 @@ var lookvoyage_link = function(url,callback){
          })
        }
 
+fs.writeFile('outputlookvoyage.json', JSON.stringify(jsonlookvoyage, null, 4), function(err){
 
+           console.log('File successfully written! - Check your project directory for the outputlookvoyage.json file');
 
+})
+
+app.get('/scrapelookvoyage', function(req, res){
+  lookvoyage_price;
+  lookvoyage_hotel;
+  lookvoyage_link;
+
+});
 exports.lookvoyage_price=lookvoyage_price;
 exports.lookvoyage_hotel=lookvoyage_hotel;
 exports.lookvoyage_link=lookvoyage_link;
+
+
+app.listen('3000');

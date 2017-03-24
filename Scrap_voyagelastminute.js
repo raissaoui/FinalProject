@@ -63,7 +63,20 @@ var voyagelastminute_link = function(url,callback){
        }
 
 
+       fs.writeFile('outputvoyagelastminute.json', JSON.stringify(jsonvoyagelastminute, null, 4), function(err){
 
+                  console.log('File successfully written! - Check your project directory for the outputlookvoyage.json file');
+
+       })
+
+       app.get('/scrapevoyagelastminute', function(req, res){
+         voyagelastminute_price;
+         voyagelastminute_hotel;
+         voyagelastminute_link;
+
+       });
 exports.voyagelastminute_price=voyagelastminute_price;
 exports.voyagelastminute_hotel=voyagelastminute_hotel;
 exports.voyagelastminute_link=voyagelastminute_link;
+
+app.listen("3000");

@@ -15,6 +15,8 @@ var price;
 var link;
 var hotel;
 var jsonpromovacances = { price: "" , hotel: "", link: "" };
+var pays="espagne"
+var url="http://www.promovacances.com/vacances-sejour-hotel/voyage-"+pays+"/#destinationZones=1761&departureCities=1188&themespace=sejour-voyage&departureDateRange=15&moteur=true";
 
 var promovacances_price = function(url,callback){
   request(url, function(error, response, html){
@@ -62,8 +64,20 @@ var promovacances_link = function(url,callback){
          })
        }
 
+       fs.writeFile('outputpromovacances.json', JSON.stringify(jsonpromovacances, null, 4), function(err){
 
+                  console.log('File successfully written! - Check your project directory for the outputpromovacances.json file');
 
+       })
+
+       app.get('/scrapepromovacance', function(req, res){
+         lookvoyage_price;
+         lookvoyage_hotel;
+         lookvoyage_link;
+
+       });
 exports.promovacances_price=promovacances_price;
 exports.promovacances_hotel=promovacances_hotel;
 exports.promovacances_link=promovacances_link;
+
+app.listen('3000');
