@@ -288,5 +288,5 @@ check['country'] = function() {
 
 deactivateTooltips();
 
-server.listen(1185);
-console.log("server listening on 1185");
+server.listen(8000);
+console.log("server listening on 8000");
