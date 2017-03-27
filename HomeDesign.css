@@ -1,9 +1,169 @@
-body
-{
-   background:url('giphy.gif') no-repeat;
-   background-size: 100%;
-   color: white;
-   text-align: center;
+:root {
+    --spinner-size: 5rem;
+    --dot-size: calc(var(--spinner-size) / 5);
+    --duration: 3s;
+    --delay: calc(var(--duration) / 60);
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background: url(https://habrastorage.org/files/c21/2ef/627/c212ef6277634dac8227afd2027df853.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: translateX(0) translateY(0);
+                transform: translateX(0) translateY(0);
+    }
+    20% {
+        -webkit-transform: translateX(0) translateY(0);
+                transform: translateX(0) translateY(0);
+    }
+    25% {
+        -webkit-transform: translateX(0) translateY(calc(var(--spinner-size) - var(--dot-size)));
+                transform: translateX(0) translateY(calc(var(--spinner-size) - var(--dot-size)));
+    }
+    45% {
+        -webkit-transform: translateX(0) translateY(calc(var(--spinner-size) - var(--dot-size)));
+                transform: translateX(0) translateY(calc(var(--spinner-size) - var(--dot-size)));
+    }
+    50% {
+        -webkit-transform: translateX(calc(var(--spinner-size) - var(--dot-size))) translateY(calc(var(--spinner-size) - var(--dot-size)));
+                transform: translateX(calc(var(--spinner-size) - var(--dot-size))) translateY(calc(var(--spinner-size) - var(--dot-size)));
+    }
+    70% {
+        -webkit-transform: translateX(calc(var(--spinner-size) - var(--dot-size))) translateY(calc(var(--spinner-size) - var(--dot-size)));
+                transform: translateX(calc(var(--spinner-size) - var(--dot-size))) translateY(calc(var(--spinner-size) - var(--dot-size)));
+    }
+    75% {
+        -webkit-transform: translateX(calc(var(--spinner-size) - var(--dot-size))) translateY(0);
+                transform: translateX(calc(var(--spinner-size) - var(--dot-size))) translateY(0);
+    }
+    95% {
+        -webkit-transform: translateX(calc(var(--spinner-size) - var(--dot-size))) translateY(0);
+                transform: translateX(calc(var(--spinner-size) - var(--dot-size))) translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        -webkit-transform: translateX(0) translateY(0);
+                transform: translateX(0) translateY(0);
+    }
+    20% {
+        -webkit-transform: translateX(0) translateY(0);
+                transform: translateX(0) translateY(0);
+    }
+    25% {
+        -webkit-transform: translateX(0) translateY(calc(var(--spinner-size) - var(--dot-size)));
+                transform: translateX(0) translateY(calc(var(--spinner-size) - var(--dot-size)));
+    }
+    45% {
+        -webkit-transform: translateX(0) translateY(calc(var(--spinner-size) - var(--dot-size)));
+                transform: translateX(0) translateY(calc(var(--spinner-size) - var(--dot-size)));
+    }
+    50% {
+        -webkit-transform: translateX(calc(var(--spinner-size) - var(--dot-size))) translateY(calc(var(--spinner-size) - var(--dot-size)));
+                transform: translateX(calc(var(--spinner-size) - var(--dot-size))) translateY(calc(var(--spinner-size) - var(--dot-size)));
+    }
+    70% {
+        -webkit-transform: translateX(calc(var(--spinner-size) - var(--dot-size))) translateY(calc(var(--spinner-size) - var(--dot-size)));
+                transform: translateX(calc(var(--spinner-size) - var(--dot-size))) translateY(calc(var(--spinner-size) - var(--dot-size)));
+    }
+    75% {
+        -webkit-transform: translateX(calc(var(--spinner-size) - var(--dot-size))) translateY(0);
+                transform: translateX(calc(var(--spinner-size) - var(--dot-size))) translateY(0);
+    }
+    95% {
+        -webkit-transform: translateX(calc(var(--spinner-size) - var(--dot-size))) translateY(0);
+                transform: translateX(calc(var(--spinner-size) - var(--dot-size))) translateY(0);
+    }
+}
+
+.spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: var(--spinner-size);
+    width: var(--spinner-size);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+}
+
+.spinner > .dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    -webkit-filter: url('#goo');
+            filter: url('#goo');
+}
+
+.spinner > .dot:nth-of-type(1):before {
+    -webkit-animation-delay: var(--delay);
+            animation-delay: var(--delay);
+}
+
+.spinner > .dot:nth-of-type(2) {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+}
+
+.spinner > .dot:nth-of-type(2):after {
+    -webkit-animation-delay: calc(var(--duration) / 12);
+            animation-delay: calc(var(--duration) / 12);
+}
+
+.spinner > .dot:nth-of-type(2):before {
+    -webkit-animation-delay: calc(var(--duration) / 12 + var(--delay));
+            animation-delay: calc(var(--duration) / 12 + var(--delay));
+}
+
+.spinner > .dot:nth-of-type(3) {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+}
+
+.spinner > .dot:nth-of-type(3):after {
+    -webkit-animation-delay: calc(var(--duration) / 6);
+            animation-delay: calc(var(--duration) / 6);
+}
+
+.spinner > .dot:nth-of-type(3):before {
+    -webkit-animation-delay: calc(var(--duration) / 6 + var(--delay));
+            animation-delay: calc(var(--duration) / 6 + var(--delay));
+}
+
+.spinner > .dot:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #FFF;
+    height: calc(var(--dot-size));
+    width: calc(var(--dot-size));
+    border-radius: 50%;
+    -webkit-animation: rotate var(--duration) linear infinite;
+            animation: rotate var(--duration) linear infinite;
+}
+
+.spinner > .dot:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, .4);
+    height: var(--dot-size);
+    width: var(--dot-size);
+    border-radius: 50%;
+    -webkit-animation: rotate var(--duration) linear infinite;
+            animation: rotate var(--duration) linear infinite;
 }
 .formdesign{
 
