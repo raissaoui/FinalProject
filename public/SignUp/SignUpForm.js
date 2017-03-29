@@ -1,25 +1,20 @@
 function processFormFieldsIndividual(req, res) {
-    //Store the data from the fields in your data store.
-    //The data store could be a file or database or any other store based
-    //on your application.
     var fields = [];
     var form = new formidable.IncomingForm();
-    //Call back when each field in the form is parsed.
+
     form.on('field', function (field, value) {
         console.log(field);
         console.log(value);
         fields[field] = value;
     });
-    //Call back when each file in the form is parsed.
+
     form.on('file', function (name, file) {
         console.log(name);
         console.log(file);
         fields[name] = file;
-        //Storing the files meta in fields array.
-        //Depending on the application you can process it accordingly.
+
     });
 
-    //Call back for file upload progress.
     form.on('progress', function (bytesReceived, bytesExpected) {
         var progress = {
             type: 'progress',
@@ -27,12 +22,9 @@ function processFormFieldsIndividual(req, res) {
             bytesExpected: bytesExpected
         };
         console.log(progress);
-        //Logging the progress on console.
-        //Depending on your application you can either send the progress to client
-        //for some visual feedback or perform some other operation.
+
     });
 
-    //Call back at the end of the form.
     form.on('end', function () {
         res.writeHead(200, {
             'content-type': 'text/plain'
@@ -45,7 +37,6 @@ function processFormFieldsIndividual(req, res) {
     form.parse(req);
 }
 
-// Fonction de désactivation de l'affichage des "tooltips"
 function deactivateTooltips() {
 
     var tooltips = document.querySelectorAll('.tooltip'),
@@ -57,8 +48,6 @@ function deactivateTooltips() {
 
 }
 
-
-// La fonction ci-dessous permet de récupérer la "tooltip" qui correspond à notre input
 
 function getTooltip(elements) {
 
@@ -73,9 +62,7 @@ function getTooltip(elements) {
 }
 
 
-// Fonctions de vérification du formulaire, elles renvoient "true" si tout est ok
-
-var check = {}; // On met toutes nos fonctions dans un objet littéral
+var check = {};
 
 check['sex'] = function() {
 
@@ -109,7 +96,7 @@ check['lastName'] = function(id) {
 
 };
 
-check['firstName'] = check['lastName']; // La fonction pour le prénom est la même que celle du nom
+check['firstName'] = check['lastName'];
 
 check['age'] = function() {
 
@@ -197,9 +184,7 @@ check['country'] = function() {
 };
 
 
-// Mise en place des événements
-
-(function() { // Utilisation d'une IIFE pour éviter les variables globales.
+(function() {
 
     var myForm = document.getElementById('myForm'),
         inputs = document.querySelectorAll('input[type=text], input[type=password]'),
@@ -207,7 +192,7 @@ check['country'] = function() {
 
     for (var i = 0; i < inputsLength; i++) {
         inputs[i].addEventListener('keyup', function(e) {
-            check[e.target.id](e.target.id); // "e.target" représente l'input actuellement modifié
+            check[e.target.id](e.target.id);
         });
     }
 
@@ -237,9 +222,5 @@ check['country'] = function() {
 
     });
 
-})();
-
-
-// Maintenant que tout est initialisé, on peut désactiver les "tooltips"
-
+})();nas
 deactivateTooltips();
