@@ -12,7 +12,7 @@ var server = http.createServer(function (req, res) {
 });
 
 function displayForm(res) {
-    fs.readFile('SignUp.html', function (err, data) {
+    fs.readFile('../SignUp/SignUp.html', function (err, data) {
         res.writeHead(200, {
             'Content-Type': 'text/html',
                 'Content-Length': data.length
@@ -49,13 +49,6 @@ function processFormFieldsIndividual(req, res) {
         fields[field] = value;
     });
 
-    form.on('file', function (name, file) {
-        console.log(name);
-        console.log(file);
-        fields[name] = file;
-
-    });
-
     form.on('progress', function (bytesReceived, bytesExpected) {
         var progress = {
             type: 'progress',
@@ -69,7 +62,8 @@ function processFormFieldsIndividual(req, res) {
         res.writeHead(200, {
             'content-type': 'text/plain'
         });
-        res.write('received the data:\n\n');
+        //res.write('received the data:\n\n');
+        res.sendFile('../Account/MyAccount.html');
         res.end(util.inspect({
             fields: fields
         }));
