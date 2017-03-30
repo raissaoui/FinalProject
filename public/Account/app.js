@@ -10,19 +10,21 @@ var fs = require('fs');
 
 
 var app = express();
-app.use("/css",  express.static(__dirname + '/css'));
-app.set('view engine','ejs');
+//app.use("/css",  express.static(__dirname + '/css'));
+//app.set('view engine','ejs');
 
 app.get('/', function (req, res) {
-    res.render(__dirname + 'main',{result_text:"Hello, we'll predict if the vacation's price is acceptable. ",yes_no:"null",result_values:""});
+    res.render(__dirname + 'main',{result_text:"Hello, we'll predict if the vacation's price is acceptable. ",yes_no:"null",result:""});
 });
+/*
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use(bodyParser.json());
+app.use(bodyParser.json());*/
 
 app.post("/", function (req, res) {
     var link=req.body.destination;
+    var destination="allemagne";
     Scrap_Promovacances.getpromovacances(destination, function(data){
         var jsonPV = JSON.parse(data); //jsonpromovacances
         Scrap_voyagelastminute.getvoyagelastminute(destination,function(data){
