@@ -10,6 +10,7 @@ var fs = require('fs');
 
 
 var app = express();
+<<<<<<< HEAD
 //app.use("/css",  express.static(__dirname + '/css'));
 //app.set('view engine','ejs');
 
@@ -25,6 +26,21 @@ app.use(bodyParser.json());*/
 app.post("/", function (req, res) {
     var link=req.body.destination;
     var destination="allemagne";
+=======
+app.use("/css",  express.static(__dirname + '/css'));
+app.set('view engine','ejs');
+
+app.get('/', function (req, res) {
+    res.render(__dirname + 'main',{result_text:"Hello, we'll predict if the vacation's price is acceptable. ",yes_no:"null",result_values:""});
+});
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
+
+app.post("/", function (req, res) {
+    var link=req.body.destination;
+>>>>>>> 4da3c8333de230f757da9c4f4a3222a5275d780d
     Scrap_Promovacances.getpromovacances(destination, function(data){
         var jsonPV = JSON.parse(data); //jsonpromovacances
         Scrap_voyagelastminute.getvoyagelastminute(destination,function(data){
